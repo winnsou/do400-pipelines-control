@@ -4,12 +4,12 @@ pipeline {
             label 'nodejs'
         }
     }
-    stages { 
-        stage('Run Tests') {
-            parallel {
     parameters {
         booleanParam(name: "RUN_FRONTEND_TESTS", defaultValue: true)
     }
+    stages { 
+        stage('Run Tests') {
+            parallel {
                 stage('Backend Tests') {
                     steps {
                         sh 'node ./backend/test.js'
